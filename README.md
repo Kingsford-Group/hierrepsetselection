@@ -23,14 +23,14 @@ The hierarchical representative set selection is a divide-and-conquer-like algor
 ```
 hierarchical_rep_set_selection_multi_iters.sh <fullset_fullpath_kmer_files> <representative_set_size> <num_iters> <chunk_size> <chunk_dir_prefix> <Q> <chunking_method> <top_subset_size>
 ```
-Where:
-`<fullset_fullpath_kmer_files>`:  A file containing the names of all the datasets' k-mer counts files (full-path) in the original full set, one filename per line. These k-mer counts files are gzipped.
-`<representative_set_size>`: The desired size of the final representative set.
-`<num_iters>`: The number of iterations (i.e. levels in the hierarchy).
-`<chunk_size>`: The size of each chunk.
-`<chunk_dir_prefix>`: The prefix of the chunk directories (e.g. "chunk_").
-`<Q>`: The average representative-set size for each chunk.
-`<chunking_method>`: "seeded" or "sequential". You should always use "seeded".
+Where: <br>
+`<fullset_fullpath_kmer_files>`:  A file containing the names of all the datasets' k-mer counts files (full-path) in the original full set, one filename per line. These k-mer counts files are gzipped. <br>
+`<representative_set_size>`: The desired size of the final representative set. <br>
+`<num_iters>`: The number of iterations (i.e. levels in the hierarchy). <br>
+`<chunk_size>`: The size of each chunk. <br>
+`<chunk_dir_prefix>`: The prefix of the chunk directories (e.g. "chunk_"). <br>
+`<Q>`: The average representative-set size for each chunk. <br>
+`<chunking_method>`: "seeded" or "sequential". You should always use "seeded". <br>
 `<top_subset_size>`: The size of the randomly-selected subset from the full set used for the seeded-chunking at the top level.
 
 The output representative set (`representative_set_datasets`) is located in the directory `merge_of_chunks/`. If there are multiple levels of iterations, the final representative set is located under the lowest level of directory `merge_of_chunks/` by going down each `merge_of_chunks/` directory recursively.
