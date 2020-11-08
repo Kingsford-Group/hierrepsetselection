@@ -7,7 +7,7 @@ This repository contains the programs for the Hierarchical Representative Set Se
 
 Download the source code from this repository. In addition, also download the source code from the repository https://github.com/Kingsford-Group/jellyfishsim and then compile them (see Installation instructions there). You will need these three binaries compiled from the repository https://github.com/Kingsford-Group/jellyfishsim: `sortsim`, `chunking`, and `hausdorff`, in order to run the programs in this repository.
 
-Modify the directory paths (`bin_dir` and `exe_dir`) accordingly in the code of this repository, to point to your local directory that holds the source code of this repository and your local directory that holds the binaries compiled from the repository https://github.com/Kingsford-Group/jellyfishsim.
+Modify the directory paths (`bin_dir` and `exe_dir`) accordingly in the code of this repository, to point to your local directory that holds the source code of this repository and your local directory that holds the three binaries (`sortsim`, `chunking`, and `hausdorff`).
 
 You also need to install a Python package [apricot](https://github.com/jmschrei/apricot) by using:
 ```
@@ -70,9 +70,10 @@ The partial Hausdorff distance is used to evaluate how well a selected subset re
 hausdorff 17 <fullset_fullpath_kmer_files> <representative_set_datasets> <q>
 ```
 
-The optimal k-mer size 17 is used here. Where: <br>
+The optimal k-mer size 17 is used here. <br>
+Where: <br>
 `<fullset_fullpath_kmer_files>`:  A file containing the names of all the datasets' k-mer counts files (full-path) in the original full set, one filename per line. These k-mer counts files are gzipped. <br>
-`<representative_set_datasets>`: A file containing the names of the selected representative datasets' k-mer counts files (gzipped).
+`<representative_set_datasets>`: A file containing the names of the selected representative datasets' k-mer counts files (gzipped). <br>
 `<q>`: A parameter used in the partial Hausdorff distance: `q = 1 – K / |X|` where `|X|` is the size of the original full set, and `K` is for using the Kth largest value (counting from the minimum) as the partial Hausdorff distance. 
 
 
