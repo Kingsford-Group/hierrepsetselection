@@ -39,7 +39,7 @@ then
     # SEEDED_CHUNKING:
     # (a) Select a random subset from the fullset, to be used for seeded-chunking:
 
-    python3.6 $bin_dir/select_random_subset_fullpath_files.py $fullset_fullpath_kmer_files $subset_size > select_random_subset_fullpath_files.log
+    python $bin_dir/select_random_subset_fullpath_files.py $fullset_fullpath_kmer_files $subset_size > select_random_subset_fullpath_files.log
 
     # (b) Perform seeded-chunking:
 
@@ -49,7 +49,7 @@ else
     echo "sequential chunking"
     
     # SEQUENTIAL_CHUNKING:
-    python3.6 $bin_dir/sequential_chunking.py $fullset_fullpath_kmer_files $num_chunks $chunk_size > sequential_chunking.log
+    python $bin_dir/sequential_chunking.py $fullset_fullpath_kmer_files $num_chunks $chunk_size > sequential_chunking.log
 
 fi
 
@@ -68,7 +68,7 @@ echo "Done Computing similarity matrix for every chunk"
 # (3) Compute weights (mean-square weighting) for every chunk:
 
 echo "Computing weights for every chunk..."
-python3.6 $bin_dir/compute_chunk_weights_mean-square-only.py $chunk_dir_prefix $num_chunks $Q $chunk_size > compute_chunk_weights_mean-square-only.log 
+python $bin_dir/compute_chunk_weights_mean-square-only.py $chunk_dir_prefix $num_chunks $Q $chunk_size > compute_chunk_weights_mean-square-only.log 
 echo "Done Computing weights for every chunk"
 
 # (4) Run apricot for every chunk:

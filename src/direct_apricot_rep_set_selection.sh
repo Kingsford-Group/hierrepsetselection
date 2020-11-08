@@ -27,7 +27,7 @@ echo "Done Computing similarity matrix for the full set"
 # (2) Run apricot on the full set:
 
 echo "Running apricot on the full set..."
-{ /usr/bin/time python3.6 $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $representative_set_size $fullset_fullpath_kmer_files > run_apricot.log; } 2> run_apricot.time.log 
+{ /usr/bin/time python $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $representative_set_size $fullset_fullpath_kmer_files > run_apricot.log; } 2> run_apricot.time.log 
 echo "Done Running apricot on the full set"
 
 

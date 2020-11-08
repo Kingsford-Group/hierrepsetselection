@@ -27,7 +27,7 @@ do
 
     rep_set_size=$(cat rep_set_size)
 
-    python3.6 $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $rep_set_size $datasets_file
+    python $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $rep_set_size $datasets_file
     
     cd $curr_dir
 

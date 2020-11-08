@@ -58,7 +58,7 @@ do
     fi
 
     # find the number of chunks for the current level
-    num_chunks=$(python3.6 $bin_dir/get_num_chunks.py $fullset_size $chunk_size)
+    num_chunks=$(python $bin_dir/get_num_chunks.py $fullset_size $chunk_size)
 
     echo "Number of chunks k = $num_chunks"
 
@@ -93,7 +93,7 @@ echo "Done Computing similarity matrix for the merged set"
 # (7) Run apricot for the merged set:
 
 echo "Running apricot for the merged set..."
-{ /usr/bin/time python3.6 $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $representative_set_size merged_datasets > run_apricot.log; } 2> run_apricot.time.log 
+{ /usr/bin/time python $bin_dir/run_apricot_with_kmers_similarity.py similarity_matrix $representative_set_size merged_datasets > run_apricot.log; } 2> run_apricot.time.log 
 echo "Done Running apricot for the merged set"
 
 cd $curr_dir
