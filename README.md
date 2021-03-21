@@ -76,4 +76,13 @@ Where: <br>
 `<representative_set_datasets>`: A file containing the names of the selected representative datasets' k-mer counts files (gzipped). <br>
 `<q>`: A parameter used in the partial Hausdorff distance: `q = 1 – K / |X|` where `|X|` is the size of the original full set, and `K` is for using the Kth largest value (counting from the minimum) as the partial Hausdorff distance. 
 
+The implementation in this GitHub repository uses apricot as the base level to perform representative set selection on each chunk and on the merged set. The hierarchical representative set selection algorithm is applicable for using other representative set selectors as the base level.
+
+If using a different similarity-matrix- or distance-matrix-based representative set selection package or binary (if available) as the base level, one can simply modify the file `run_apricot_with_kmers_similarity.py` to call that package’s function (or execute that binary) by replacing apricot’s functional call accordingly. 
+
+The overall approach is based on the cosine similarity of k-mers between RNA-seq samples. If one would like to apply the hierarchical representative set selection algorithm using other similarities, one can replace the binary `sortsim` in the files `hierarchical_rep_set_selection_multi_iters.sh` and `compute_sim_matrix_for_chunks.sh` by their own binary that computes and outputs the similarity matrix. However, the binary `chunking` implements the seeded-chunking algorithm using the cosine similarity of k-mers. One can adapt the file `chunking.cc` from the repository https://github.com/Kingsford-Group/jellyfishsim and modify the parts of computing similarities by using their own similarity.
+
+# Data
+
+We performed the hierarchical representative set selection on the entire set of public human bulk RNA-seq (Illumina) samples in the SRA, which contains 196523 RNA-seq samples. We obtained different sizes of final representative sets (3000, 4000, 5000 and 7000 RNA-seq samples). These final representative sets listing the SRA accession for each selected RNA-seq sample are available under the `data/` directory.
 
